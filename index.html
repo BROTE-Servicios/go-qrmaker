@@ -1,0 +1,208 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.7/dist/tailwind.min.css" rel="stylesheet">
+    
+    <title>Generador de Código QR</title>
+</head>
+
+<body class="bg-gray-100">
+    <div class="flex justify-center items-center h-screen">
+        <div class="bg-white p-8 rounded shadow-md w-full max-w-md">
+            <h2 class="text-2xl text-center font-bold mb-8">Generador de Código QR</h2>
+            <form id="form" class="space-y-4">
+              <div class="mb-8">
+                  <h3 class="text-lg font-bold mb-4">Información Personal</h3>
+                  <div class="grid grid-cols-2 gap-4">
+                      <div>
+                          <label for="nombre" class="block mb-2">Nombre y Apellido:</label>
+                          <input type="text" id="nombre" name="nombre" placeholder="Escribe tu nombre"
+                              class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
+                      </div>
+                      
+                      <div>
+                        <label for="titulo" class="block mb-2">Título:</label>
+                        <input type="text" id="titulo" name="titulo" placeholder="Escribe tu titulo"
+                            class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
+                    </div>
+                      <div>
+                          <label for="telefono" class="block mb-2">Teléfono:</label>
+                          <input type="text" id="telefono" name="telefono" placeholder="Escribe tu teléfono"
+                              class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
+                      </div>
+                      <div>
+                          <label for="email" class="block mb-2">Email:</label>
+                          <input type="email" id="email" name="email" placeholder="Escribe tu email"
+                              class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
+                      </div>
+                  </div>
+              </div>
+              <div class="mb-8">
+                  <h3 class="text-lg font-bold mb-4">Información Laboral</h3>
+                  <div class="grid grid-cols-2 gap-4">
+                      <div>
+                          <label for="empresa" class="block mb-2">Empresa:</label>
+                          <input type="text" id="empresa" name="empresa" placeholder="Escribe el nombre de tu empresa"
+                              class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
+                      </div>
+                      <div>
+                          <label for="cargo" class="block mb-2">Cargo:</label>
+                          <input type="text" id="cargo" name="cargo" placeholder="Escribe tu cargo"
+                              class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
+                      </div>
+                      
+                      <div>
+                        <label for="direccion" class="block mb-2">Dirección:</label>
+                        <input type="text" id="direccion" name="direccion" placeholder="Escribe la dirección"
+                            class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
+                    </div>
+                      <div>
+                          <label for="telefonolaboral" class="block mb-2">Teléfono Laboral:</label>
+                          <input type="text" id="telefonolaboral" name="telefonolaboral"
+                              placeholder="Escribe tu teléfono laboral"
+                              class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
+                      </div>
+                  </div>
+              </div>
+              <div class="mb-8">
+                  <h3 class="text-lg font-bold mb-4">Redes Sociales</h3>
+                  <div class="grid grid-cols-2 gap-4">
+                      <div>
+                          <label for="facebook" class="block mb-2">Facebook:</label>
+                          <input type="text" id="facebook" name="facebook"
+                              placeholder="Escribe tu perfil de Facebook"
+                              class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
+                      </div>
+                      <div>
+                          <label for="instagram" class="block mb-2">Instagram:</label>
+                          <input type="text" id="instagram" name="instagram"
+                              placeholder="Escribe tu perfil de Instagram"
+                              class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
+                      </div>
+                  
+                      <div>
+                        <label for="linkedin" class="block mb-2">LinkedIn:</label>
+                        <input type="text" id="linkedin" name="linkedin"
+                            placeholder="Escribe tu perfil de LinkedIn"
+                            class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
+                    </div>
+                
+                      <div>
+                          <label for="web" class="block mb-2">Sitio Web:</label>
+                          <input type="text" id="web" name="web" placeholder="Escribe tu sitio web"
+                              class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
+                      </div>
+                  </div>
+              </div>
+              <div class="flex justify-center">
+                  <button type="submit"
+                      class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                      Generar QR
+                  </button>
+              </div>
+          </form>
+            <form id="formqr" class="space-y-4">
+                <div class="mb-8">
+                    
+                    <h3 class="text-lg font-bold mb-4">Generar QR con texto o url</h3>
+                    <div class="grid grid-cols-2 gap-4">
+                        
+                        <div>
+                            <label for="website" class="block mb-2">Sitio Web:</label>
+                            <input type="text" id="website" name="website" placeholder="Escribe tu sitio web"
+                                class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
+                        </div>
+                    </div>
+                </div>
+                <div class="flex justify-center">
+                    <button type="submit"
+                        class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                        Generar QR
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    
+    <script>
+
+const form = document.getElementById("form")
+
+
+form.addEventListener("submit", function (event) {
+  event.preventDefault();
+
+
+  
+ const nombre = document.getElementById("nombre").value;
+  const telefono = document.getElementById("telefono").value;
+  const telefonolaboral = document.getElementById("telefonolaboral").value;
+  const email = document.getElementById("email").value;
+  const direccion = document.getElementById("direccion").value;
+  const empresa = document.getElementById("empresa").value;
+  const titulo = document.getElementById("titulo").value;
+  const cargo = document.getElementById("cargo").value;
+  const web = document.getElementById("web").value;
+  const instagram = document.getElementById("instagram").value;
+  const facebook = document.getElementById("facebook").value;
+  const linkedin = document.getElementById("linkedin").value;
+
+  
+  const url = `/qr?nombre=${encodeURIComponent(nombre)}&telefono=${encodeURIComponent(
+    telefono
+  )}&email=${encodeURIComponent(email)}&telefonolaboral=${encodeURIComponent(
+    telefonolaboral
+  )}&direccion=${encodeURIComponent(direccion)}&empresa=${encodeURIComponent(
+    empresa
+  )}&titulo=${encodeURIComponent(titulo)}&cargo=${encodeURIComponent(cargo)}&web=${encodeURIComponent(
+    web
+  )}&instagram=${encodeURIComponent(instagram)}&facebook=${encodeURIComponent(facebook)}&linkedin=${encodeURIComponent(linkedin)}`;
+
+      Swal.fire({
+        title: "Código QR generado",
+        imageUrl: url,
+        imageAlt: "Código QR",
+        showConfirmButton: false,
+        customClass: {
+          image: "rounded-lg",
+        },
+      });
+
+});
+
+
+const formUrl = document.getElementById("formqr");
+
+
+formUrl.addEventListener("submit", function (event) {
+  event.preventDefault();
+
+
+  const website = document.getElementById("website").value;
+
+  
+  const url = `/qr?website=${encodeURIComponent(website)}`;
+
+      Swal.fire({
+        title: "Código QR generado",
+        imageUrl: url,
+        imageAlt: "Código QR",
+        showConfirmButton: false,
+        customClass: {
+          image: "rounded-lg",
+        },
+      });
+
+});
+
+</script>
+  </body>
+</html>
+
