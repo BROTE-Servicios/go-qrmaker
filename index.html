@@ -1,19 +1,198 @@
-
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.7/dist/tailwind.min.css" rel="stylesheet">
-    
     <title>Generador de Código QR</title>
-</head>
+    <style>
+        body {
+            background-color: #57a7b0;
+            font-family: 'Arial', sans-serif;
+        }
+        #logoBrote {
+            max-width: 150px;
+            display: block;
+            margin: 20px auto;
+        }
+        .container {
+            width: 100%;
+            max-width: 600px;
+            padding: 20px;
+            background-color: white;
+            border-radius: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin: auto;
+            text-align: center;
+        }
+        .footer {
+            text-align: center;
+            padding: 15px 0;
+            background-color: #f7fafc;
+            color: #4a5568;
+            font-size: 0.9rem;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+        .footer a {
+            color: #4a5568;
+            text-decoration: none;
+        }
+        .footer a:hover {
+            color: #2c5282;
+        }
+        @media (max-width: 600px) {
+            .container {
+                margin: 10px;
+            }
+        }
+        .container {
+    margin-top: 10em;
+    position: relative;
+    /* padding-top: 3em; */
+    margin-bottom: 5em;
+}
 
-<body class="bg-gray-100">
-    <div class="flex justify-center items-center h-screen">
-        <div class="bg-white p-8 rounded shadow-md w-full max-w-md">
-            <h2 class="text-2xl text-center font-bold mb-8">Generador de Código QR</h2>
+img#logoBrote {
+    position: relative;
+    margin-top: -10.5em;
+    /* left: 50%; */
+    margin-bottom: 4em;
+    /* right: 50%; */
+
+    opacity: 0.8;
+
+    max-width: 200px;
+
+}
+
+.footer {
+    background-color: #2b656c;
+    color: white;
+}
+.footer a{
+    color:white;
+}
+.footer a:hover{
+    color:#aaa;
+}
+
+#form{
+    display:none;
+}
+.switch {
+        position: relative;
+        display: inline-block;
+        width: 60px;
+        height: 34px;
+    }
+
+    .switch input { 
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+
+    .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ccc;
+        transition: .4s;
+        border-radius: 34px;
+    }
+
+    .slider:before {
+        position: absolute;
+        content: "";
+        height: 26px;
+        width: 26px;
+        left: 4px;
+        bottom: 4px;
+        background-color: white;
+        transition: .4s;
+        border-radius: 50%;
+    }
+
+    input:checked + .slider {
+        background-color: #4CAF50;
+    }
+
+    input:checked + .slider:before {
+        transform: translateX(26px);
+    }
+
+    input[type="text"], input[type="email"] {
+    border-radius: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ddd;
+    padding: 15px;
+    font-size: 16px;
+}
+
+.footer {
+    background-color: #2b656c;
+    color: white;
+    text-align: center;
+    position:fixed;
+    bottom:0;
+    padding: 10px 0;
+    width: 100%;
+    font-size: 0.8rem;
+}
+.footer a {
+    color: white;
+    margin: 0 10px;
+    text-decoration: none;
+}
+.footer a:hover {
+    color: #aaa;
+}
+
+
+button {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 12px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 20px;
+}
+.footer img {
+    max-height: 2.5em;
+    filter: saturate(0) brightness(5);
+}
+
+
+.footer {
+    align-items: center;
+}
+
+    </style>
+</head>
+<body class="flex mt-10 flex-col min-h-screen justify-between">
+    <div class="container">
+        <img id="logoBrote" src="https://brote.org/img/logowhite.png" alt="Logo Brote">
+        <h1 class="text-xl font-medium text-black mb-4">Generador de QR</h1>
+        <div class="switch-container flex justify-center items-center mb-4">
+            <span class="mr-2">QR normal</span>
+            <label for="toggle" class="switch">
+                <input type="checkbox" id="toggle" class="sr-only">
+                <span class="slider round"></span>
+            </label>
+            <span class="ml-2">vCard (Contacto)</span>
+        </div>
+        
+        
             <form id="form" class="space-y-4">
               <div class="mb-8">
                   <h3 class="text-lg font-bold mb-4">Información Personal</h3>
@@ -100,7 +279,7 @@
               </div>
               <div class="flex justify-center">
                   <button type="submit"
-                      class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                  class="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
                       Generar QR
                   </button>
               </div>
@@ -109,10 +288,9 @@
                 <div class="mb-8">
                     
                     <h3 class="text-lg font-bold mb-4">Generar QR con texto o url</h3>
-                    <div class="grid grid-cols-2 gap-4">
+                    <div class="grid grid-cols-1">
                         
                         <div>
-                            <label for="website" class="block mb-2">Sitio Web:</label>
                             <input type="text" id="website" name="website" placeholder="Escribe tu sitio web"
                                 class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
                         </div>
@@ -120,19 +298,37 @@
                 </div>
                 <div class="flex justify-center">
                     <button type="submit"
-                        class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                    class="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
                         Generar QR
                     </button>
                 </div>
-            </form>
-        </div>
-    </div>
+            </div>
+            <div class="footer">
+                <a href="https://bte.ar">bte.ar</a>
+                <a href="https://brote.org">brote.org</a>
+                <a href="https://www.instagram.com/brote.servicios">instagram</a>
+                <a href="https://github.com/BROTE-Servicios">github</a>
+                <a href="https://www.linkedin.com/company/broteservicios/">linkedin</a>
+                <img src="https://www.letscalafate.com/wp-content/uploads/2023/08/des3-1-e1611695211799.png" alt="">
+            </div>
 
     
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     
     <script>
+   document.getElementById('toggle').addEventListener('change', function() {
+        var isChecked = this.checked;
+        var formVCard = document.getElementById('form');
+        var formQR = document.getElementById('formqr');
 
+        if (isChecked) {
+            formVCard.style.display = 'block';
+            formQR.style.display = 'none';
+        } else {
+            formVCard.style.display = 'none';
+            formQR.style.display = 'block';
+        }
+    });
 const form = document.getElementById("form")
 
 
