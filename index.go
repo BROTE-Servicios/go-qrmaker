@@ -31,6 +31,16 @@ func generateQRCode(w http.ResponseWriter, r *http.Request) {
                 vcard += website
         }else{
                  fmt.Println("Inside vcard")
+
+                 // BEGIN:VCARD
+                 // VERSION:3.0
+                 // N:Juan;Coppola;;;
+                 // FN:Anakin
+                 // ORG:Roasted TV
+                 // TELEPHONE;TYPE=WORK,VOICE:+5491252 555-1212
+                 // ADR;TYPE=WORK:;;100 Waters Edge;Baytown;LA;30314;United States of America
+                 // END:VCARD
+
                 // Construir el contenido de la vCard
                 vcard += "BEGIN:VCARD\n" +
                         "VERSION:3.0\n" +
